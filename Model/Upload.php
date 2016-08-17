@@ -16,6 +16,7 @@ use Lightning\Tools\Security\Random;
  * @property integer $uploaded_bytes
  * @property integer $created
  * @property string $locator
+ * @property integer $complete
  */
 class Upload extends Object {
     const TABLE = 'chunked_upload';
