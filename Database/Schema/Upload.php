@@ -14,6 +14,7 @@ class User extends Schema {
             'user_id' => $this->int(true),
             'uploaded_bytes' => $this->int(true, self::BIGINT),
             'created' => $this->int(true),
+            'complete' => $this->int(true),
             'locator' => $this->varchar(64),
         );
     }

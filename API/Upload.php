@@ -32,6 +32,7 @@ class Upload extends API {
         // TODO: Make sure if the packages come in out of order that they are saved correctly.
         $fileHandler->write($file->locator, $data, $offset);
         $file->uploaded_bytes = max(strlen($data) + $offset, $file->uploaded_bytes);
+        $file->save();
 
         return Output::SUCCESS;
     }
@@ -41,9 +42,7 @@ class Upload extends API {
      */
     public function postNew() {
         // Make sure they are signed in.
-        if (ClientUser::getInstance()->isAnonymous()) {
-            return Output::ACCESS_DENIED;
-        }
+        $this->requireLogin();
 
         $file = UploadModel::create(['user_id' => ClientUser::getInstance()->id]);
         return [

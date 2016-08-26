@@ -18,7 +18,7 @@ use Lightning\Tools\Security\Random;
  * @property string $locator
  * @property integer $complete
  */
-class Upload extends Object {
+class UploadOverridable extends Object {
     const TABLE = 'chunked_upload';
     const PRIMARY_KEY = 'upload_id';
 
